@@ -119,12 +119,93 @@ public class AccountTest {
 		Account swethaAcc = new Account();
 		rahulAcc.deposit(5000);
 		System.out.println(rahulAcc.getBalance());
-
 		swethaAcc.deposit(45000);
 	}
 }
 
+javac AccountTest.java ==> AccountTest.class [bytecode]
 
+===========
+
+Logically grouping of Objects/classes in enterprise application
+
+1) entity / domain / model class ==> business data ==> data which is long lived, beyond the life of application
+	RDBMS/ NoSQL like MongoDB / file system
+
+	Uber ==> Customer; Vehicle; Driver; Trip; Payment
+	Swiggy ==> customer; FoodItem; Order; orderItem; Payment
+
+	Generally entity is one per table; columns of database table ==> java fields
+
+	Avoid writing buiness logic in entity class;
+	generally entity classes will have fields; constructor; getters/setters; hashCode() and equals()
+
+	Customer.class
+	Item.class
+	Order.class
+	...
+
+2) DAO classes ==> Data Access Object ==> contains CRUD operations to persistent store
+	
+	class CustomerDao {
+		CREATE ==> insert into
+		READ ==> select * from
+		UPDATE ==> update table
+		DELETE ==> delete table
+	}
+
+	should not contain UI or business logic code ==> Single Responsibillty
+
+3) Service classes ==> Facade over DAO and business logic
+	Normally provide more coarse graind interface to DAO fine-grained operations
+
+	class BankingService {
+		// atomic opertion
+		void transferFunds(Account fromAcc, Account toAcc, double amt) {
+			1) use AccountDAO ==> select balance from fromAcc;
+			logic to check sufficient balance exists or not
+			2) use AccountDao ==> update fromAcc
+			3) use AccountDao ==> update toAcc
+			4) use TransactionDAO ==> insert into transACTION table
+			5) send SMS
+		}
+	}	
+
+4) UI classes
+	Web / Andrioid / Standalone
+
+5) Utility classes ==> helper classes
+
+6) Exception classes ==> to represent abnormal condition in application
+
+==============
+
+In java we use packages to logically group classes
+
+packages are folders in java
+
+=============================================================
+
+Comments for developers who have access to code
+// single line comment
+
+/*
+ multi-line comment
+ 
+*/
+
+
+JavaDoc comments ==> API comments
+comments for API users; need not have access to code
+/**
+
+*/
+
+
+
+ICICIBank application ==> VeriSign ==> APIs boolean verifyPin(pin)
+
+============
 
 
 
