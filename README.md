@@ -44,7 +44,7 @@ docker run -p 3306:3306 -d --name local-mysql -e MYSQL_ROOT_PASSWORD=Welcome123 
 
 c) CONNECT TO A MYSQL RUNNING CONTAINER:
 
-$ docker exec -t -i <container_name> /bin/bash
+$ docker exec -t -i <container_name>  bash
 
 d) Run MySQL client:
 
