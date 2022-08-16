@@ -224,3 +224,27 @@ once debug is complete
 
 Perspective ==> java
 
+===========================================
+
+Garbage Collection
+
+new keyword to allocate memory on heap area
+
+we don't have "free" or "delete" to release memory ==> Garbage collector takes care of removing unused objects
+
+GC ==> is a low priorty thread in JRE
+
+Short term GC ==> Scavanger GC ==> Reference Handler
+
+Full term GC ==> segment by segment lock, mark, sweep, compact ==> for every nth cycle of short term GC, long term GC runs
+
+============
+
+System.gc(); a request to start GC ==> not a command
+
+rahulAcc = null;
+
+==================================
+
+
+
