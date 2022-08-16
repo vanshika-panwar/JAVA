@@ -209,4 +209,18 @@ ICICIBank application ==> VeriSign ==> APIs boolean verifyPin(pin)
 
 
 
+AccountClient.java
+
+10th line breakpoint
+
+Debug As ==> Java Application ==> Switch
+
+RightClick ==> AccountClient.main ==> Edit step filters ==> use step filters ==> select all
+
+
+f5 and f6
+
+once debug is complete
+
+Perspective ==> java
 
