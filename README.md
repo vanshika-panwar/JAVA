@@ -54,4 +54,78 @@ mysql> exit
 
 ```
 
+Day 1
+
+OOP ==>  real-world applications
+
+	Object ==> state and behaviour /actions/ messages
+
+	AC [temp, fan speed; on/off(), increase(), decrease()]
+	TV [ channel, volume; on/off(), changeChannel(),,]
+	Fan, Computer,...
+
+	Object communicates with other object by sending a message.
+	What messages an object can recive is exposed thro its interface.
+
+	Template to build an object / Blue print ==> class, function, Type
+
+	BankingAccount ==> state ==> balance; behaviour ==> credit(); debit();
+
+SOLID design Princples:
+
+S ==> Single Responsibility
+O ==> Open Close Principle ==> Closed for Change and Open for extension
+L ==> Liskov Substitution Principle
+I ==> Interface seggregation
+D ==> Dependency Injection ===> Inversion Of Control
+
+===============================================================
+
+Java ==> Technology ==> Platform Provides Apis and Runtime to execute bytecode
+
+Bytecode ==> compiled code ; portable; architecture neutral and platform indepenent
+
+Source Code ==> compile ==> Bytecode ==> can be taken to differenet devices and executed
+
+Mac / Windows machine write source code ==> compile ==> bytecode ==> Settop box/ attendence swipe machine / elevator / Linux machine
+
+source code Java [ JDK ] ==> javac ==> bytecode
+Source code Kotlin [ KDK ] ==> Kotlin Compiler ==> bytecode
+Source Code Groovy [ Groovy DK] ==> Groovy compiler ==> bytecode
+
+
+============================================
+
+Account.java
+
+public class Account {
+	private double balance;
+
+	public void deposit(double amt) {
+		this.balance += amt;
+	}
+
+	public double getBalance() {
+		return this.balance;
+	}
+}
+
+javac Account.java ==> Account.class [ Bytecode]
+
+
+public class AccountTest {
+	public static void main(String[] args) {
+		Account rahulAcc = new Account();
+		Account swethaAcc = new Account();
+		rahulAcc.deposit(5000);
+		System.out.println(rahulAcc.getBalance());
+
+		swethaAcc.deposit(45000);
+	}
+}
+
+
+
+
+
 
