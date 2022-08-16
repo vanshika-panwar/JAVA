@@ -20,10 +20,10 @@ https://github.com/BanuPrakash/Java
 
 Softwares Required:
 1) Java 8+
-	https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html
+	https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html
 
 2) Eclipse for JEE  
-	https://www.eclipse.org/downloads/packages/release/2020-03/m1/eclipse-ide-enterprise-java-developers
+	https://www.eclipse.org/downloads/packages/release/2022-06/r/eclipse-ide-enterprise-java-and-web-developers
 
 3) MySQL  [ Prefer on Docker]
 
@@ -52,4 +52,6 @@ bash terminal> mysql -u "root" -p
 
 mysql> exit
 
-=================
+```
+
+
