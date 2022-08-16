@@ -246,5 +246,199 @@ rahulAcc = null;
 
 ==================================
 
+Constructors
+1) intialize the state of object
+2) same name as that of class
+3) can be overladed
+4) compiler creates default constructor ==> NoArgs constructor if we don't write any of our own.
 
+===============
+
+Requirement: need to have a count of how many instances of Account is created?
+
+static variable ==> shared by all objects of class
+static methods ==> class method <className>.method() ==> "this" pointer will not be passed to static methods
+
+to access static variable prefer writing static methods
+
+====================================
+
+Relationship between objects.
+
+1) Generalization and Specialization
+2) Realization
+3) Association
+4) Uses A 
+
+
+Apply DRY ==> Don't repeat yourself
+
+
+Java Development tools
+* Checkstyle and PMD / FindBugs/ SpotBugs ==> SonarQube
+* Maven ==> dependency management; automate running tasks
+* Jenkins ==> CI/CD
+* git
+
+Checkstyle ==> static code analysis ==> coding conventions ==> Naming / whitespace / comments
+
+PMD / FindBugs/ SpotBugs ==> static code analysis ==> good programming practices ==> empty condition statment; empty catch block; unreachable code; copy & paste code
+
+if(condtion){
+
+} else {
+	logic
+}
+
+try {
+	// logic
+}catch(Exception ex){}
+
+method() {
+	return x;
+	System.out.println("Hello"); unreachable code
+}
+
+
+ * Generalization and Specialization
+
+ class Object {
+
+ }
+
+ class Product { // implicitly extends Object
+
+ }
+
+ class Mobile extends Product { // mobile is a specialized product
+
+ }
+
+ class Tv extends Product { // tv is a specialized product
+
+ }
+
+
+
+====
+
+Mobile in my pocket which HAS A Tata Sky APP
+
+========================
+
+
+* constructors in Inheritance [Generalization and Specialization]
+
+class Product { // implicitly extends Object
+	public Product() {
+		print P1
+	}
+	public Product(int id, String name) {
+		print P2
+	}
+ }
+
+ class Mobile extends Product { // mobile is a specialized product
+ 	public Mobile() {
+ 		print M1
+ 	}
+
+ 	public Mobile(int id, String name, String connectivity) {
+ 		print M2
+ 	}
+ }
+
+
+ new Mobile(); // ? Object(), Product () P1 , Mobile() M1
+
+ new Mobile(123, "iPhone 13", "5G"); // ? P1, M2
+
+=============================
+
+Note: Constructors are not inherited
+
+class Product { // implicitly extends Object
+	public Product() {
+		print P1
+	}
+	public Product(int id, String name) {
+		print P2
+	}
+ }
+
+ class Mobile extends Product { // mobile is a specialized product
+ 	public Mobile() {
+ 		print M1
+ 	}
+
+ 	public Mobile(int id, String name, String connectivity) {
+ 		super(id, name); // way to chain base class constructor
+ 		print M2
+ 	}
+ }
+
+
+ new Mobile(); // ? Object(), Product () P1 , Mobile() M1
+
+ new Mobile(123, "iPhone 13", "5G"); // ? P2, M2
+
+==============
+
+
+
+class Product { // implicitly extends Object
+	 
+	public Product(int id, String name) {
+		print P2
+	}
+ }
+
+ class Mobile extends Product { // mobile is a specialized product
+ 	public Mobile() {
+ 		print M1
+ 	}
+
+ 	public Mobile(int id, String name, String connectivity) {
+ 		super(id, name); // way to chain base class constructor
+ 		print M2
+ 	}
+ }
+
+
+ new Mobile(); // ? Compiler error ==> Product doesn't have default constructor
+
+ new Mobile(123, "iPhone 13", "5G"); // ? P2, M2
+
+ ========================
+
+ Methods in Inheritance
+
+
+class Product { // implicitly extends Object
+	 
+	public double getPrice( ) {
+		return 999.00;
+	}
+ }
+
+ class Mobile extends Product { // mobile is a specialized product
+ 	public double getPrice( ) {
+		return 100.00;
+	}
+
+	public String getConnectivity() {
+		return "3G"
+	}
+ }
+
+Mobile m = new Mobile();
+m.getPrice(); // ? 100.00 ==> overriding ==> 
+m.getConnectivty(); // 3G
+
+Product p = new Mobile(); // valid ==> upcasting
+p.getPrice(); // 100.00 In Java all methods are virtual by default ==> dynamic binding
+
+p.getConnectivty(); // ERROR
+
+======================================
 

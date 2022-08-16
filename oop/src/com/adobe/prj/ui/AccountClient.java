@@ -5,8 +5,15 @@ import com.adobe.prj.entity.Account;
 public class AccountClient {
 
 	public static void main(String[] args) {
-		Account rahulAcc = new Account();
-		Account swethaAcc = new Account();
+		
+		System.out.println(Account.getCount()); // 0
+		
+		Account rahulAcc = new Account(); // noArgs
+		System.out.println(Account.getCount()); // 1
+		
+		Account swethaAcc = new Account(1000); // parametrized constructor
+		System.out.println(Account.getCount()); // 2
+		
 		rahulAcc.deposit(5000);
 		System.out.println("Rahul Acc");
 		System.out.println("Balance : " + rahulAcc.getBalance());
